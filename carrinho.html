@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Doação</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .produto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .quantidade {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantidade button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quantidade button:hover {
+            background-color: #218838;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .finalizar-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .finalizar-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seu Carrinho</h1>
+    <div class="container">
+        <div class="produto">
+            <span id="nomeCesta">Cesta Básica</span>
+            <div class="quantidade">
+                <button onclick="alterarQuantidade(-1)">-</button>
+                <span id="quantidade">1</span>
+                <button onclick="alterarQuantidade(1)">+</button>
+            </div>
+            <span id="valorUnitario">R$ 50,00</span>
+        </div>
+
+        <div class="total">
+            Total: <span id="valorTotal">R$ 50,00</span>
+        </div>
+
+        <a href="finalizar.html" class="finalizar-btn">Finalizar Doação</a>
+    </div>
+
+    <script>
+        // Capturar os parâmetros da URL (cesta e valor)
+        const params = new URLSearchParams(window.location.search);
+        const nomeCesta = params.get("cesta") || "Cesta Básica";
+        const valorUnitario = parseFloat(params.get("valor")) || 50;
+
+        document.getElementById("nomeCesta").innerText = nomeCesta;
+        document.getElementById("valorUnitario").innerText = `R$ ${valorUnitario.toFixed(2)}`;
+
+        let quantidade = 1;
+
+        function alterarQuantidade(mudanca) {
+            quantidade += mudanca;
+            if (quantidade < 1) quantidade = 1; // Evita valores negativos
+
+            document.getElementById("quantidade").innerText = quantidade;
+            document.getElementById("valorTotal").innerText = `R$ ${(quantidade * valorUnitario).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

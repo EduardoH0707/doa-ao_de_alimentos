@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação de Alimentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        nav {
+            background: #222;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            background: #28a745;
+            border-radius: 5px;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .home-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .doar-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .doar-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Plataforma de Doação de Alimentos</header>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="doar.html">Doar Alimentos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="javascript:void(0)" id="loginLink">Entrar</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Faça a Diferença!</h2>
+        <p>Cadastre doações de alimentos e ajude a combater o desperdício.</p>
+        
+        <img src="https://ampliar.org.br/wp-content/uploads/2020/10/doacao-de-alimentos-salva-vidas-voce-vai-ficar-de-fora.jpg" alt="Doação de alimentos" class="home-image">
+        
+        <div id="welcomeMessage"></div>
+        
+        <a href="doacao.html" class="doar-btn">Doar Alimentos</a>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const user = JSON.parse(localStorage.getItem("usuario"));
+            const loginLink = document.getElementById("loginLink");
+            const welcomeMessage = document.getElementById("welcomeMessage");
+
+            if (user) {
+                loginLink.textContent = "Sair";
+                welcomeMessage.textContent = `Bem-vindo, ${user.name}! Você está logado como ${user.accountType === 'pessoaFisica' ? 'Pessoa Física' : 'Empresa'}.`;
+            } else {
+                welcomeMessage.textContent = "Faça login para cadastrar suas doações.";
+                loginLink.textContent = "Entrar";
+            }
+        }
+
+        function handleLoginClick(event) {
+            const user = JSON.parse(localStorage.getItem("usuario"));
+            event.preventDefault();
+
+            if (user) {
+                localStorage.removeItem("usuario");
+                setTimeout(() => window.location.replace("lg.html"), 300);
+            } else {
+                setTimeout(() => window.location.replace("lg.html"), 300);
+            }
+        }
+
+        window.onload = function() {
+            checkLogin();
+            document.getElementById("loginLink").addEventListener("click", handleLoginClick);
+        }
+    </script>
+</body>
+</html>

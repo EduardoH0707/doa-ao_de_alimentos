@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação de Alimentos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilizando o botão Doar Alimentos */
+        .doar-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .doar-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Plataforma de Doação de Alimentos</h1>
+    </header>
+
+    <nav id="nav-test">
+        <div id="nav-container">
+            <ul>
+                <li class="nav-li active-nav"><a href="home.html">Home</a></li>
+                <li class="nav-li"><a href="doar.html">Doar Alimentos</a></li>
+                <li class="nav-li"><a href="contato.html">Contato</a></li>
+                <li class="nav-li">
+                    <a href="javascript:void(0)" id="loginLink">Entrar</a>
+                </li>
+                
+            </ul>
+            <div id="line"></div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Faça a Diferença!</h2>
+        <p>Cadastre doações de alimentos e ajude a combater o desperdício.</p>
+        
+        <!-- Imagem abaixo do título -->
+        <img src="https://ampliar.org.br/wp-content/uploads/2020/10/doacao-de-alimentos-salva-vidas-voce-vai-ficar-de-fora.jpg" alt="Doação de alimentos" class="home-image">
+
+        <!-- Mensagem de boas-vindas ou redirecionamento -->
+        <div id="welcomeMessage"></div>
+    </div>
+
+    <script>
+        // Função para verificar se o usuário está logado
+        function checkLogin() {
+            const user = JSON.parse(localStorage.getItem("usuario"));
+            const loginLink = document.getElementById("loginLink");
+            const welcomeMessage = document.getElementById("welcomeMessage");
+
+            if (user) {
+                // Se o usuário estiver logado, exibe a mensagem de boas-vindas
+                loginLink.textContent = "Sair"; // Muda o texto do link
+                welcomeMessage.textContent = `Bem-vindo, ${user.name}! Você está logado como ${user.accountType === 'pessoaFisica' ? 'Pessoa Física' : 'Empresa'}.`;
+            } else {
+                // Se o usuário não estiver logado, exibe o link de login
+                welcomeMessage.textContent = "Faça login para cadastrar suas doações.";
+                loginLink.textContent = "Entrar"; // Garante que o link mostre 'Entrar' se não estiver logado
+            }
+        }
+
+        // Função para gerenciar o clique do botão "Entrar" ou "Sair"
+        function handleLoginClick(event) {
+            const user = JSON.parse(localStorage.getItem("usuario"));
+            event.preventDefault(); // Impede o comportamento padrão do link (redirecionamento imediato)
+
+            if (user) {
+                // Se já estiver logado, remove os dados do localStorage e redireciona para a página de login
+                localStorage.removeItem("usuario");
+
+                // Redirecionamento com atraso para evitar o "aparecer e sumir"
+                setTimeout(function() {
+                    window.location.replace("lg.html");
+                }, 300);
+            } else {
+                // Redireciona diretamente para o login se não estiver logado
+                setTimeout(function() {
+                    window.location.replace("lg.html");
+                }, 300);
+            }
+        }
+
+        // Evento para o botão "Doar Alimentos"
+        document.getElementById("doarBtn").addEventListener("click", function() {
+            window.location.href = "doacao.html"; // Página de doação
+        });
+
+        // Chama a função para verificar o login quando a página carregar
+        window.onload = function() {
+            checkLogin();
+            document.getElementById("loginLink").addEventListener("click", handleLoginClick);
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

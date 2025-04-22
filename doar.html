@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doar Cestas Básicas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .doar-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .doar-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="nav-container">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li>
+                    <a href="#">Doar Alimentos</a>
+                    <ul class="submenu">
+                        <li><a href="empresa.html">Empresa</a></li>
+                        <li><a href="pessoafisica.html">Pessoa Física</a></li>
+                    </ul>
+                </li>
+                <li><a href="lg.html">Entrar</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Escolha a Cesta Básica para Doar</h1>
+    <div class="container">
+        <div class="card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_897244-MLB54822816962_042023-O-kit-c-2-cesta-basica-completa-alimentos-essenciais-16-itens.webp" alt="Cesta Econômica">
+            <h3>Cesta Econômica - R$ 50,00</h3>
+            <p>Arroz, feijão, macarrão, óleo, açúcar e sal.</p>
+            <a href="carrinho.html?cesta=Cesta%20Econômica&valor=50" class="doar-btn">Doar</a>
+        </div>
+        <div class="card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_897244-MLB54822816962_042023-O-kit-c-2-cesta-basica-completa-alimentos-essenciais-16-itens.webp" alt="Cesta Padrão">
+            <h3>Cesta Padrão - R$ 80,00</h3>
+            <p>Itens da Cesta Econômica + leite em pó, café e farinha.</p>
+            <a href="carrinho.html?cesta=Cesta%20Padrão&valor=80" class="doar-btn">Doar</a>
+        </div>
+        <div class="card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_897244-MLB54822816962_042023-O-kit-c-2-cesta-basica-completa-alimentos-essenciais-16-itens.webp" alt="Cesta Família">
+            <h3>Cesta Família - R$ 120,00</h3>
+            <p>Itens da Cesta Padrão + biscoitos, achocolatado e enlatados.</p>
+            <a href="carrinho.html?cesta=Cesta%20Família&valor=120" class="doar-btn">Doar</a>
+        </div>
+        <div class="card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_897244-MLB54822816962_042023-O-kit-c-2-cesta-basica-completa-alimentos-essenciais-16-itens.webp" alt="Cesta Completa">
+            <h3>Cesta Completa - R$ 150,00</h3>
+            <p>Itens da Cesta Família + enlatados, sucos e proteínas.</p>
+            <a href="carrinho.html?cesta=Cesta%20Completa&valor=150" class="doar-btn">Doar</a>
+        </div>
+        <div class="card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_897244-MLB54822816962_042023-O-kit-c-2-cesta-basica-completa-alimentos-essenciais-16-itens.webp" alt="Cesta Premium">
+            <h3>Cesta Premium - R$ 200,00</h3>
+            <p>Itens da Cesta Completa + frutas secas e cereais.</p>
+            <a href="carrinho.html?cesta=Cesta%20Premium&valor=200" class="doar-btn">Doar</a>
+        </div>
+        <div class="card">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_897244-MLB54822816962_042023-O-kit-c-2-cesta-basica-completa-alimentos-essenciais-16-itens.webp" alt="Cesta Especial">
+            <h3>Cesta Especial - R$ 250,00</h3>
+            <p>Itens da Cesta Premium + produtos de higiene e limpeza.</p>
+            <a href="carrinho.html?cesta=Cesta%20Especial&valor=250" class="doar-btn">Doar</a>
+        </div>
+    </div>
+</body>
+</html>

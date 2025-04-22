@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Empresa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Cadastro de Doação - Empresa</h1>
+    </header>
+
+    <nav id="nav-test">
+        <div id="nav-container">
+            <ul>
+                <li class="nav-li"><a href="home.html">Home</a></li>
+                <li class="nav-li active-nav">
+                    <a href="#">Doar Alimento</a>
+                    <ul class="submenu">
+                        <li><a href="empresa.html">Empresa</a></li>
+                        <li><a href="pessoafisica.html">Pessoa Física</a></li>
+                    </ul>
+                </li>
+                <li class="nav-li"><a href="lg.html">Entrar</a></li>
+                <li class="nav-li"><a href="contato.html">Contato</a></li>
+            </ul>
+            <div id="line"></div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form>
+            <input type="text" placeholder="Nome da Empresa" required>
+            <input type="text" placeholder="CNPJ" required>
+            <input type="text" placeholder="Local de retirada" required>
+            <textarea placeholder="Descrição dos alimentos" required></textarea>
+            <button type="submit">Cadastrar Doação</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
